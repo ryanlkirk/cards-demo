@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@mui/material";
 import PlayingCard from "./PlayingCard";
-import {getDeckColour} from "../Helpers/CardHelpers";
+import { getDeckColour } from "../Helpers/CardHelpers";
 
 // Custom button style - standard material UI ones weren't quite right for the bg colour
 const buttonStyle = {
@@ -43,8 +43,10 @@ function CardDeck() {
 
     // Draw a single card at random
     const drawCard = () => {
-        // get random card from deckOrder array
-        let randomCard = deckOrder[Math.ceil(Math.random() * (deckOrder.length - 1))]
+        // Get a random index from the deckOrder array
+        const randomIndex = Math.floor(Math.random() * deckOrder.length);
+        // Get the randomly drawn card
+        const randomCard = deckOrder[randomIndex];
         // set last drawn card which will display above remaining cards
         setLastCardDraw(randomCard)
         // filter down deck order to remove the selected card
@@ -54,7 +56,7 @@ function CardDeck() {
     }
 
     // Used to actually render the visual cards
-    const printCards = (cardArr?:String[]) => {
+    const printCards = (cardArr?: String[]) => {
         let cardInfo;
         let cards = cardArr ? cardArr : deckOrder;
         return cards.map((card => {
@@ -63,7 +65,7 @@ function CardDeck() {
         }))
     }
 
-    const shuffleDeck = (arr:string[]) => {
+    const shuffleDeck = (arr: string[]) => {
         // use array sort with custom sorting using random number to shuffle array randomly
         const shuffledDeck = [...arr].sort((a, b) => 0.5 - Math.random());
         // set the deck order in state to the new shuffled array
@@ -74,10 +76,10 @@ function CardDeck() {
         <>
             <section className="buttonGroup centerAllFlex m20">
                 <Button size="large" variant="contained" sx={buttonStyle} onClick={() => { drawCard() }} disabled={!deckOrder.length}>Draw</Button>
-                <Button size="large" variant="contained" sx={buttonStyle} onClick={() => shuffleDeck(deckOrder)} disabled={!deckOrder.length || deckOrder.length < 52 }>Shuffle</Button>
+                <Button size="large" variant="contained" sx={buttonStyle} onClick={() => shuffleDeck(deckOrder)} disabled={!deckOrder.length || deckOrder.length < 52}>Shuffle</Button>
                 <Button className="m10 p10" size="large" variant="contained" sx={buttonStyle} onClick={() => { buildDeck() }}>{!deckOrder.length ? "New Deck" : "Reset"}</Button>
             </section>
-            {lastCardDraw && 
+            {lastCardDraw &&
                 <div className="centerAllFlex flexColumn m20">
                     <div className="lastCardInfo">Last Card Drawn:</div>
                     <div className={`card ${getDeckColour(lastCardDraw.at(-1))}`}>{lastCardDraw}</div>
