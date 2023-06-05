@@ -23,23 +23,21 @@ function CardDeck() {
     const [canShuffle, setCanShuffle] = useState<boolean>(true);
     const [lastCardDraw, setLastCardDraw] = useState<string>("");
 
-    // Builds or rebuilds the deck
     const buildDeck = () => {
         // Allow shuffle after a build/rebuild of the deck
         !canShuffle && setCanShuffle(true);
-        let deckObj: string[] = [];
-        // Builds the deck array in the correct order
-        suits.map(suit => {
-            return cards.map(card => {
-                const cardInfo = `${card} ${suit}`
-                return deckObj.push(cardInfo)
-            })
-        })
-        // set state to correctly ordered deck
-        setDeckOrder(deckObj)
-        // clear out last drawn card
-        setLastCardDraw("")
-    }
+        const deckObj: string[] = [];
+        // Builds deck array in the correct order
+        for (const suit of suits) {
+          for (const card of cards) {
+            const cardInfo = `${card} ${suit}`;
+            deckObj.push(cardInfo);
+          }
+        }
+        setDeckOrder(deckObj);
+        // Clear last drawn
+        setLastCardDraw("");
+      };
 
     // Draw a single card at random
     const drawCard = () => {
