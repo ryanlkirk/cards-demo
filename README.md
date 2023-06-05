@@ -18,6 +18,8 @@ Please note that this project is currently under development, and not all featur
 - State management
 - Interactive UI elements
 - Data sorting
+- Responsive layouts
+- Mobile views
 - Unit testing [In Progress] - Written using Jest
 
 ## Installation
