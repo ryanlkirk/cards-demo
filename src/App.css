@@ -16,6 +16,11 @@ body {
   height: 125px;
   -webkit-box-shadow: 0px 0px 6px 0px #042f00;
   box-shadow: 0px 0px 6px 0px #042f00;
+  transition: 0.3s;
+}
+
+.card:hover {
+  background: rgb(199, 187, 187);
 }
 
 .redSuit {
