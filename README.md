@@ -1,6 +1,6 @@
 # Card Deck Demo
 
-This is a demo project built initially as part of an interview process and was built using React. The goal of this project was to show my understanding of the core features of React.
+This is a demo project built initially as part of an interview process and was built using React. The goal of this project was to show my understanding of the core features of React and TypeScript.
 
 Please note that this project is currently under development, and not all features are fully implemented. I am actively working on enhancing the functionality and adding new features and functionality.
 
@@ -36,7 +36,7 @@ Once the development server is up and running, open your web browser and navigat
 ## Technologies
 
 - React
-- Redux
+- Typescript
 - JavaScript
 - HTML
 - CSS
