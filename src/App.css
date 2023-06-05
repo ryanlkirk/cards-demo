@@ -21,6 +21,7 @@ body {
 
 .card:hover {
   background: rgb(199, 187, 187);
+  cursor: default;
 }
 
 .redSuit {
