@@ -40,6 +40,8 @@ Once the development server is up and running, open your web browser and navigat
 - JavaScript
 - HTML
 - CSS
+- Flexbox
+- Material UI
 - Jest
 
 ## License
